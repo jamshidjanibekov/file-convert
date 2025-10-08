@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Word to PDF - Bepul Word ni PDF ga o\'tkazish',
-  description: 'Word (DOCX) fayllaringizni PDF formatiga bepul va tez konvertatsiya qiling. Ro\'yxatdan o\'tishsiz, cheklovsiz.',
+  title: "Word to PDF - Bepul Word ni PDF ga o'tkazish",
+  description: "Word (DOCX) fayllaringizni PDF formatiga bepul va tez konvertatsiya qiling. Ro'yxatdan o'tishsiz, cheklovsiz.",
 };
 
 export default function WordToPdfPage() {
@@ -27,7 +27,7 @@ export default function WordToPdfPage() {
         {/* FileConverter component bu yerda */}
         <div className="bg-white rounded-xl shadow-lg p-8">
           <p className="text-gray-600 text-center">
-            Tez orada bu sahifa to\'liq ishlaydi...
+            {"Tez orada bu sahifa to'liq ishlaydi..."}
           </p>
         </div>
       </div>

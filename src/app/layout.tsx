@@ -18,11 +18,11 @@ export const metadata: Metadata = {
     default: 'PDF Word Konverter - Bepul Onlayn Fayl Konvertatsiya',
     template: '%s | PDF Word Konverter'
   },
-  description: 'Bepul onlayn PDF va Word hujjatlarni konvertatsiya qiling. Tez, xavfsiz va oson. PDF ni Word ga, Word ni PDF ga o\'tkazing. Ro\'yxatdan o\'tishsiz, cheklovsiz.',
+  description: "Bepul onlayn PDF va Word hujjatlarni konvertatsiya qiling. Tez, xavfsiz va oson. PDF ni Word ga, Word ni PDF ga o'tkazing. Ro'yxatdan o'tishsiz, cheklovsiz.",
   keywords: [
     'PDF Word konverter',
-    'PDF ga o\'tkazish',
-    'Word ga o\'tkazish',
+    "PDF ga o'tkazish",
+    "Word ga o'tkazish",
     'PDF to Word',
     'Word to PDF',
     'bepul konverter',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     'fayl konvertatsiya',
     'hujjat konvertatsiya',
     'PDF converter',
-    'DOCX converter'
+    "DOCX converter"
   ],
   authors: [{ name: 'FileConvert.uz' }],
   creator: 'FileConvert.uz',
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     }],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: "summary_large_image",
     title: 'PDF Word Konverter - Bepul Onlayn',
     description: 'PDF va Word hujjatlarni tez va oson konvertatsiya qiling',
     images: ['/og-image.png'],
@@ -66,16 +66,16 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
+      "max-video-preview": -1,
+      "max-image-preview": "large",
       'max-snippet': -1,
     },
   },
   verification: {
     // Google Search Console verification
-    google: 'your-google-verification-code',
+    google: "your-google-verification-code",
     // Yandex verification
-    yandex: 'your-yandex-verification-code',
+    yandex: "your-yandex-verification-code",
   },
 };
 
@@ -85,7 +85,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="uz">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

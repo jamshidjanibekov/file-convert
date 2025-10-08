@@ -13,6 +13,22 @@ export default function FileConverter() {
   const [convertedFile, setConvertedFile] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
 
+  const validateAndSetFile = useCallback((selectedFile: File) => {
+    const validTypes = conversionType === 'pdf-to-word' 
+      ? ['application/pdf']
+      : [
+          'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+          'application/msword'
+        ];
+
+    if (validTypes.includes(selectedFile.type)) {
+      setFile(selectedFile);
+      setConvertedFile(null);
+    } else {
+      alert('Iltimos, to\'g\'ri fayl turini tanlang!');
+    }
+  }, [conversionType]);
+
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(true);
@@ -30,23 +46,7 @@ export default function FileConverter() {
     if (droppedFile) {
       validateAndSetFile(droppedFile);
     }
-  }, []);
-
-  const validateAndSetFile = (selectedFile: File) => {
-    const validTypes = conversionType === 'pdf-to-word' 
-      ? ['application/pdf']
-      : [
-          'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-          'application/msword'
-        ];
-
-    if (validTypes.includes(selectedFile.type)) {
-      setFile(selectedFile);
-      setConvertedFile(null);
-    } else {
-      alert('Iltimos, to\'g\'ri fayl turini tanlang!');
-    }
-  };
+  }, [validateAndSetFile]);
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
@@ -132,7 +132,7 @@ export default function FileConverter() {
               <FileText className="w-6 h-6 text-blue-600" />
             </div>
             <h4 className="font-semibold text-lg">PDF to Word</h4>
-            <p className="text-sm text-gray-600 mt-1">PDF faylni Word ga o&apos;tkazing</p>
+            <p className="text-sm text-gray-600 mt-1">{"PDF faylni Word ga o'tkazing"}</p>
           </button>
 
           <button
@@ -153,7 +153,7 @@ export default function FileConverter() {
               <FileText className="w-6 h-6 text-red-600" />
             </div>
             <h4 className="font-semibold text-lg">Word to PDF</h4>
-            <p className="text-sm text-gray-600 mt-1">Word faylni PDF ga o&apos;tkazing</p>
+            <p className="text-sm text-gray-600 mt-1">{"Word faylni PDF ga o'tkazing"}</p>
           </button>
         </div>
       </div>
@@ -283,7 +283,7 @@ export default function FileConverter() {
         <h4 className="font-semibold text-blue-900 mb-2">📌 Eslatma:</h4>
         <ul className="text-sm text-blue-800 space-y-1">
           <li>• Maksimal fayl hajmi: 10 MB</li>
-          <li>• Fayllaringiz xavfsiz va 1 soatdan keyin avtomatik o&apos;chiriladi</li>
+          <li>{"• Fayllaringiz xavfsiz va 1 soatdan keyin avtomatik o'chiriladi"}</li>
           <li>• Biz sizning fayllaringizni saqlamaymiz va uchinchi shaxslarga bermaymiz</li>
         </ul>
       </div>

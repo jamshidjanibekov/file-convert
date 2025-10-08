@@ -68,8 +68,7 @@ export default function Home() {
             <span className="text-blue-600">onlayn konvertatsiya</span> qiling
           </h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Bepul, tez va xavfsiz. Ro&apos;yxatdan o&apos;tishsiz, yuklab olishsiz.
-            Fayllaringiz xavfsiz saqlanadi va avtomatik o&apos;chiriladi.
+            {"Bepul, tez va xavfsiz. Ro'yxatdan o'tishsiz, yuklab olishsiz. Fayllaringiz xavfsiz saqlanadi va avtomatik o'chiriladi."}
           </p>
         </section>
 
@@ -139,7 +138,7 @@ export default function Home() {
                 <div>
                   <h4 className="text-xl font-semibold mb-2">Faylni tanlang</h4>
                   <p className="text-gray-600">
-                    PDF yoki Word faylingizni yuklang (drag & drop yoki tanlash)
+                    {"PDF yoki Word faylingizni yuklang (drag & drop yoki tanlash)"}
                   </p>
                 </div>
               </div>
@@ -190,7 +189,7 @@ export default function Home() {
                 </ul>
               </div>
               <div>
-                <h4 className="font-semibold mb-4">Ma&apos;lumot</h4>
+                <h4 className="font-semibold mb-4">{"Ma'lumot"}</h4>
                 <ul className="space-y-2 text-gray-400">
                   <li><a href="/about" className="hover:text-white transition">Biz haqimizda</a></li>
                   <li><a href="/privacy" className="hover:text-white transition">Maxfiylik</a></li>
@@ -199,11 +198,11 @@ export default function Home() {
               </div>
             </div>
             <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-              <p>&copy; 2025 FileConvert.uz. Barcha huquqlar himoyalangan.</p>
+              <p>© 2025 FileConvert.uz. Barcha huquqlar himoyalangan.</p>
             </div>
-          </div>
-        </footer>
-      </div>
+        </div>
+      </footer>
+    </div>
     </>
   );
 }
