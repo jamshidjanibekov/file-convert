@@ -1,36 +1,254 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📄 FileConvert.uz - PDF Word Konverter
 
-## Getting Started
+Bepul onlayn PDF va Word hujjatlarni konvertatsiya qilish platformasi. SEO-optimized, tez va xavfsiz.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-15.5.4-black)
+![React](https://img.shields.io/badge/React-19.1.0-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
+![Express](https://img.shields.io/badge/Express-5.1.0-green)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🌟 Xususiyatlar
+
+- ✅ **PDF to Word** - PDF fayllarni DOCX formatiga konvertatsiya
+- ✅ **Word to PDF** - Word hujjatlarni PDF ga konvertatsiya
+- ✅ **SEO Optimized** - To'liq metadata, sitemap, robots.txt, Schema.org
+- ✅ **Drag & Drop** - Oson fayl yuklash
+- ✅ **Progress Bar** - Real-time konvertatsiya jarayoni
+- ✅ **Auto Cleanup** - Fayllar 1 soatdan keyin avtomatik o'chiriladi
+- ✅ **Mobile Responsive** - Barcha qurilmalarda ishlaydi
+- ✅ **Cheklovsiz** - 100% bepul, cheklovsiz
+
+## 🚀 Texnologiyalar
+
+### Frontend
+- **Next.js 15.5.4** - App Router, SSR/SSG
+- **React 19.1.0** - UI library
+- **TypeScript** - Type safety
+- **Tailwind CSS 4** - Styling
+- **Lucide React** - Icons
+
+### Backend
+- **Express.js 5.1.0** - API server
+- **Multer** - File upload
+- **pdf-lib** - PDF manipulation
+- **pdfjs-dist** - PDF parsing
+- **docx** - Word document creation
+- **mammoth** - Word document parsing
+
+## 📂 Loyiha Strukturasi
+
+```
+file-convert/
+├── src/                    # Frontend (Next.js)
+│   ├── app/               # App Router sahifalari
+│   │   ├── page.tsx       # Asosiy sahifa
+│   │   ├── layout.tsx     # Root layout + SEO metadata
+│   │   ├── robots.ts      # robots.txt
+│   │   ├── sitemap.ts     # sitemap.xml
+│   │   ├── manifest.ts    # PWA manifest
+│   │   ├── loading.tsx    # Loading UI
+│   │   ├── not-found.tsx  # 404 page
+│   │   ├── pdf-to-word/   # PDF to Word sahifa
+│   │   └── word-to-pdf/   # Word to PDF sahifa
+│   ├── components/        # React komponentlar
+│   │   └── FileConverter.tsx
+│   └── lib/              # Frontend utilities
+│
+├── server/                # Backend (Express)
+│   ├── index.ts          # Server entry point
+│   ├── routes/           # API routes
+│   │   ├── index.ts
+│   │   └── convert.ts    # Konvertatsiya route
+│   ├── controllers/      # Business logic
+│   │   └── convertController.ts
+│   ├── middleware/       # Custom middleware
+│   │   └── upload.ts     # Multer config
+│   └── lib/             # Backend utilities
+│       ├── pdfToWord.ts  # PDF → Word converter
+│       └── wordToPdf.ts  # Word → PDF converter
+│
+├── public/              # Static fayllar
+│   └── uploads/         # Yuklangan fayllar (temp)
+│
+├── package.json
+├── tsconfig.json        # Frontend TypeScript config
+├── tsconfig.server.json # Backend TypeScript config
+└── next.config.ts       # Next.js konfiguratsiya
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ O'rnatish va Ishga Tushirish
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 1. Repository ni klonlash
+```bash
+git clone <repository-url>
+cd file-convert
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Dependencies o'rnatish
+```bash
+npm install
+```
 
-## Learn More
+### 3. Development rejimi
 
-To learn more about Next.js, take a look at the following resources:
+**Frontend + Backend birgalikda:**
+```bash
+npm run dev:all
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Faqat Frontend (Next.js):**
+```bash
+npm run dev
+```
+Frontend: http://localhost:3000
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Faqat Backend (Express):**
+```bash
+npm run dev:server
+```
+Backend API: http://localhost:5000
 
-## Deploy on Vercel
+### 4. Production build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Frontend:**
+```bash
+npm run build
+npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Backend:**
+```bash
+npm run build:server
+npm run start:server
+```
+
+## 📡 API Endpoints
+
+### Health Check
+```http
+GET http://localhost:5000/api/health
+```
+
+**Response:**
+```json
+{
+  "status": "OK",
+  "message": "Server is running"
+}
+```
+
+### File Conversion
+```http
+POST http://localhost:5000/api/convert
+Content-Type: multipart/form-data
+```
+
+**Body:**
+- `file`: File (PDF yoki DOCX)
+- `conversionType`: String (`pdf-to-word` yoki `word-to-pdf`)
+
+**Response:** Konvertatsiya qilingan fayl (download)
+
+## 🎯 SEO Optimizatsiya
+
+### ✅ Implemented SEO Features
+
+1. **Metadata**
+   - Dynamic page titles
+   - Meta descriptions
+   - Keywords optimization
+   - Open Graph tags
+   - Twitter Card tags
+
+2. **Structured Data**
+   - Schema.org WebApplication markup
+   - Rich snippets support
+
+3. **Technical SEO**
+   - Robots.txt
+   - Sitemap.xml
+   - PWA Manifest
+   - Canonical URLs
+
+4. **Performance**
+   - Image optimization (AVIF, WebP)
+   - Lazy loading
+   - Code splitting
+   - Compression enabled
+
+## 🔐 Xavfsizlik
+
+- ✅ File type validation
+- ✅ File size limit (10 MB)
+- ✅ Auto cleanup (1 soat)
+- ✅ CORS configured
+- ✅ Error handling
+
+## 📱 Mobile Support
+
+Loyiha to'liq responsive va barcha qurilmalarda ishlaydi:
+- 📱 Mobile
+- 💻 Tablet
+- 🖥️ Desktop
+
+## 🎨 UI/UX
+
+- **Chiroyli dizayn** - Zamonaviy gradient va shadows
+- **Intuitiv** - Foydalanuvchi darhol tushunadi
+- **Drag & Drop** - Oson fayl yuklash
+- **Progress bar** - Real-time feedback
+- **Loading states** - Har qanday holatda UI
+
+## 📊 Performance
+
+Target metrics:
+- ⚡ Lighthouse Score: 90+
+- 🎯 FCP: < 1.5s
+- 🎯 LCP: < 2.5s
+- 🎯 TTI: < 3.0s
+
+## 🔧 Environment Variables
+
+`.env` faylida quyidagilar o'rnatilishi kerak:
+
+```env
+# Server
+PORT=5000
+NODE_ENV=development
+
+# Database
+DATABASE_PATH=./server/database/app.db
+
+# NextAuth
+NEXTAUTH_SECRET=your-secret-key
+NEXTAUTH_URL=http://localhost:3000
+
+# File Upload
+MAX_FILE_SIZE=10485760
+UPLOAD_DIR=./public/uploads
+```
+
+## 📝 TODO
+
+- [ ] Google Analytics integratsiya
+- [ ] Multi-language support (UZ, RU, EN)
+- [ ] Batch conversion (bir nechta fayl)
+- [ ] Password protected PDF support
+- [ ] Image to PDF conversion
+- [ ] PDF merge/split
+
+## 🤝 Contributing
+
+Pull requestlar qabul qilinadi! Katta o'zgarishlar uchun oldin issue oching.
+
+## 📄 License
+
+MIT
+
+## 👨‍💻 Author
+
+**FileConvert.uz Team**
+
+---
+
+**Yaratilgan Next.js + Express.js bilan ❤️**
